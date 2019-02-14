@@ -57,3 +57,17 @@ def imovel_form(request):
     else:
         form = ImovelForm()
         return render(request, 'imovel/form.html', {'form':form})
+
+def imovel_edit(request, cliente_id):
+    if (request.method == 'POST'):
+        imovel = Imovel.objects.get(pk=imovel_id)
+        form = ImovelForm(request.POST, instance=imovel)
+        if (form.is_valid()):
+            form.save()
+            return redirect('/imoveis/imovel/')
+        else:
+            return render(request, 'imovel/edit.html', {'form':form, 'imovel_id':imovel_id})   
+    else:
+        imovel = Imovel.objects.get(pk=imovel_id)
+        form = ImovelForm(instance=imovel)       
+        return render(request, 'imovel/edit.html', {'form':form, 'imovel_id':imovel_id})

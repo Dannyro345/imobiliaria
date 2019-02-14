@@ -1,0 +1,27 @@
+{% extends "base.html" %} {% block daniela %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Informações do Cliente:</h4>
+            </div>
+            <div class="col-md-12">
+                <div>
+                    <label>Nome:</label>
+                    {{cliente.nome}}
+                </div>
+                <div>
+                    <label>Data de Nascimento:</label>
+                    {{cliente.dt_nasc | date:"d/m/Y"}}
+                </div>
+                <div>
+                    <label>CPF:</label>
+                    {{cliente.cpf}}
+                </div>
+                <div>
+                    <label>Sexo:</label>
+                    {{cliente.sexo}}
+                </div>
+            </div>
+        </div>
+        {% endblock %}

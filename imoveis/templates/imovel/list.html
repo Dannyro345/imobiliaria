@@ -1,0 +1,39 @@
+{% extends "base.html" %} {% block daniela %}
+<div class="row">
+    <div class="col-md-12">
+        <h3>Listagem de Imóveis</h3>
+        <table class="table">
+            <thead>
+                <tr>
+
+                    <th>Nome</th>
+                    <th>Valor</th>
+                    <th>Localização</th>
+                    <th>Cidade</th>
+                    <th>Ver</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for imovel in imoveis %}
+                <tr>
+                    <td>{{imovel.nome}}</td>
+                    <td>{{imovel.valor}}</td>
+                    <td>{{imovel.localizacao}}</td>
+                    <td>{{imovel.cidade}}</td>
+                    <td>
+                        <a href="/imoveis/imovel/{{imovel.id}}/">Ver</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        <p>Foram encontrados {{imoveis | length}} cadastrados!</p>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+{% endblock %}

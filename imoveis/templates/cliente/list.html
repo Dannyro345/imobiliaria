@@ -1,0 +1,43 @@
+{% extends "base.html" %} {% block daniela %}
+<div class="row">
+    
+    <div class="col-md-12">
+        <h3>Listagem de clientes</h3>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Data Nascimento</th>
+                    <th>CPF</th>
+                    <th>Sexo</th>
+                    <th>    </th>
+                    <th>    </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for cliente in clientes %}
+                <tr>
+                    <td>{{cliente.nome}}</td>
+                    <td>{{cliente.dt_nasc}}</td>
+                    <td>{{cliente.cpf}}</td>
+                    <td>{{cliente.sexo}}</td>
+                    <td>
+                        <a href="/imoveis/cliente/{{cliente.id}}/">Ver</a>
+                    </td>
+                    <td>
+                        <a href="/imoveis/cliente/{{cliente.id}}/edit/">Edit</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td>
+                        <p>Foram encontrados {{clientes | length}} cadastrados!</p>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% block daniela %}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="header">
+                <h4 class="title">Dados de Imóveis:</h4>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <div>
+                <label>Nome:</label>
+                {{imovel.nome}}
+            </div>
+            <div>
+                <label>Valor:</label>
+                {{imovel.valor}}
+            </div>
+            <div>
+                <label>Localização:</label>
+                {{imovel.localizacao}}
+            </div>
+            <div>
+                <label>Cidade:</label>
+                {{imovel.cidade}}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

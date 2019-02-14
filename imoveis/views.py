@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from . models import Cliente, Imovel
-from . forms import ClienteForm
+from . forms import ClienteForm, ImovelForm
 
 # Create your views here.
 
@@ -47,3 +47,13 @@ def imovel_list(request):
 def imovel_show(request, imovel_id):
     imovel = Imovel.objects.get(pk=imovel_id)
     return render(request, 'imovel/show.html', {'imovel':imovel}) 
+
+def imovel_form(request):
+    if (request.method == 'POST'):
+        form = ImovelForm(request.POST)
+        form.save()
+        return redirect('/imoveis/imovel/')     
+
+    else:
+        form = ImovelForm()
+        return render(request, 'imovel/form.html', {'form':form})

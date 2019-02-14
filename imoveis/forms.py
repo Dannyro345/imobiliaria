@@ -1,5 +1,5 @@
 from django.forms import ModelForm, TextInput
-from .models import Cliente 
+from .models import Cliente, Imovel 
 
 class ClienteForm(ModelForm):
     class Meta:
@@ -10,4 +10,15 @@ class ClienteForm(ModelForm):
             'nome': TextInput(attrs={'class':'form-control'}),
             'dt_nasc': TextInput(attrs={'class':'form-control'}),
             'sexo': TextInput(attrs={'class':'form-control'})
+        }
+
+class ImovelForm(ModelForm):
+    class Meta:
+        model = Imovel
+        fields = '__all__'
+        widgets = {
+            'nome': TextInput(attrs={'class':'form-control'}),
+            'valor': TextInput(attrs={'class':'form-control'}),
+            'localizacao': TextInput(attrs={'class':'form-control'}),
+            'cidade': TextInput(attrs={'class':'form-control'})
         }

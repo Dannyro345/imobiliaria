@@ -8,5 +8,6 @@ urlpatterns = [
     path('imovel/', views.imovel_list),
     path('imovel/<int:imovel_id>/', views.imovel_show),
     path('cliente/form/', views.cliente_form),
-    path('cliente/<int:cliente_id>/edit/', views.cliente_edit)
+    path('cliente/<int:cliente_id>/edit/', views.cliente_edit),
+    path('imovel/form/', views.imovel_form)
 ]

@@ -58,7 +58,7 @@ def imovel_form(request):
         form = ImovelForm()
         return render(request, 'imovel/form.html', {'form':form})
 
-def imovel_edit(request, cliente_id):
+def imovel_edit(request, imovel_id):
     if (request.method == 'POST'):
         imovel = Imovel.objects.get(pk=imovel_id)
         form = ImovelForm(request.POST, instance=imovel)

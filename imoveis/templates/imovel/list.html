@@ -10,7 +10,8 @@
                     <th>Valor</th>
                     <th>Localização</th>
                     <th>Cidade</th>
-                    <th>Ver</th>
+                    <th>     </th>
+                    <th>     </th>
                 </tr>
             </thead>
             <tbody>
@@ -22,6 +23,9 @@
                     <td>{{imovel.cidade}}</td>
                     <td>
                         <a href="/imoveis/imovel/{{imovel.id}}/">Ver</a>
+                    </td>
+                    <td>
+                        <a href="/imoveis/imovel/{{imovel.id}}/edit/">Edit</a>
                     </td>
                 </tr>
                 {% endfor %}

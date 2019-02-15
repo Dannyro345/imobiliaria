@@ -19,9 +19,11 @@ def cliente_show(request, cliente_id):
 def cliente_form(request):
     if (request.method == 'POST'):
         form = ClienteForm(request.POST)
-        form.save()
-        return redirect('/imoveis/cliente/')     
-
+        if (form.is_valid()):
+            form.save()
+            return redirect('/imoveis/cliente/')
+        else:
+            return render(request, 'cliente/form.html', {'form':form})
     else:
         form = ClienteForm()
         return render(request, 'cliente/form.html', {'form':form})
@@ -51,9 +53,11 @@ def imovel_show(request, imovel_id):
 def imovel_form(request):
     if (request.method == 'POST'):
         form = ImovelForm(request.POST)
-        form.save()
-        return redirect('/imoveis/imovel/')     
-
+        if (form.is_valid()):
+            form.save()
+            return redirect('/imoveis/imovel/')     
+        else:
+            return render(request, 'imovel/form.html', {'form':form})
     else:
         form = ImovelForm()
         return render(request, 'imovel/form.html', {'form':form})
